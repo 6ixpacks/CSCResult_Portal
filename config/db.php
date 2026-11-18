@@ -1,23 +1,16 @@
 <?php
-// ============================================================
-// CSCResultPortal - Database Configuration
-// File: config/db.php
-// Purpose: Creates and manages the MySQL database connection
-//          using PDO. All other files include this file to
-//          get the $pdo connection object.
-// ============================================================
+
 
 // ============================================================
-// SECTION 1: DATABASE CREDENTIALS
-// Change these values to match your XAMPP MySQL setup.
-// Default XAMPP credentials are used here.
+// SECTION 1: DATABASE CONFIGURATION & ENVIRONMENT OVERRIDES
 // ============================================================
 
-define('DB_HOST',    'localhost');       // MySQL server host
-define('DB_PORT',    '3306');           // MySQL default port
-define('DB_NAME',    'cscresultportal');// Database name (from our .sql file)
-define('DB_USER',    'root');           // XAMPP default MySQL username
-define('DB_PASS',    '');               // XAMPP default MySQL password (empty)
+// Pull from Railway environment variables if available, otherwise fall back to local XAMPP defaults
+define('DB_HOST',    getenv('MYSQLHOST')    ?: getenv('DB_HOST')    ?: 'localhost');       
+define('DB_PORT',    getenv('MYSQLPORT')    ?: getenv('DB_PORT')    ?: '3306');           
+define('DB_NAME',    getenv('MYSQLDATABASE')?: getenv('DB_NAME')    ?: 'cscresultportal');
+define('DB_USER',    getenv('MYSQLUSER')    ?: getenv('DB_USER')    ?: 'root');           
+define('DB_PASS',    getenv('MYSQLPASSWORD')?: getenv('DB_PASS')    ?: '');               
 define('DB_CHARSET', 'utf8mb4');        // Character set (supports all Unicode)
 
 
@@ -33,9 +26,9 @@ define('APP_UNIVERSITY', 'Federal University of Technology Owerri');
 define('APP_DEPARTMENT', 'Department of Computer Science');
 define('APP_VERSION',    '1.0.0');
 
-// Base URL — used when building links in emails and redirects
-// Adjust this if your XAMPP folder name is different
-define('APP_URL', 'http://localhost/CSCResultPortal');
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+$hostName = $_SERVER['HTTP_HOST'] ?? 'localhost';
+define('APP_URL', getenv('APP_URL') ?: "$protocol://$hostName");
 
 // File upload paths (for batch uploads by HOD)
 define('UPLOAD_PATH', __DIR__ . '/../uploads/');
