@@ -87,7 +87,7 @@ function createDatabaseConnection(): PDO
     // Build the DSN (Data Source Name) string
     // Format: mysql:host=HOST;port=PORT;dbname=DBNAME;charset=CHARSET
     $dsn = sprintf(
-        'mysql:host=%s;port=%s;dbname=%s;charset=%s',
+        'mysql:host=%s;port=%s;dbname=%s;;charset=utf8mb4",
         DB_HOST,
         DB_PORT,
         DB_NAME,
@@ -102,17 +102,30 @@ function createDatabaseConnection(): PDO
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         // Return rows as ['column_name' => 'value'] arrays
         
+       function createDatabaseConnection(): PDO
+{
+    // Build the DSN (Data Source Name) string with charset directly included
+    $dsn = sprintf(
+        'mysql:host=%s;port=%s;dbname=%s;charset=%s',
+        DB_HOST,
+        DB_PORT,
+        DB_NAME,
+        DB_CHARSET
+    );
+
+    // PDO driver options (removed PDO::MYSQL_ATTR_INIT_COMMAND to avoid undefined constant errors)
+    $options = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        // Throw PDOException on any error — never silently fail
+        
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        // Return rows as ['column_name' => 'value'] arrays
+        
         PDO::ATTR_EMULATE_PREPARES   => false,
         // Use real prepared statements in MySQL driver
-        // This is more secure than emulated prepares
         
         PDO::ATTR_STRINGIFY_FETCHES  => false,
         // Keep integers as int, decimals as float etc.
-        // Prevents type confusion bugs
-        
-        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci",
-        // Ensure the connection uses the correct character set
-        // This prevents encoding issues with special characters
     ];
 
     try {
@@ -120,10 +133,14 @@ function createDatabaseConnection(): PDO
         return $pdo;
 
     } catch (PDOException $e) {
-        // --------------------------------------------------------
-        // IMPORTANT: Never show raw database errors to users.
-        // Log the real error privately, show a safe message.
-        // --------------------------------------------------------
+        // Log the real error to a private log file
+        logDatabaseError($e->getMessage());
+
+        // Show a safe error page and stop execution
+        showDatabaseErrorPage();
+        exit();
+    }
+}
         
         // Log the real error to a private log file
         logDatabaseError($e->getMessage());
