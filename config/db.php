@@ -86,14 +86,15 @@ function createDatabaseConnection(): PDO
 {
     // Build the DSN (Data Source Name) string
     // Format: mysql:host=HOST;port=PORT;dbname=DBNAME;charset=CHARSET
+    // Build the DSN (Data Source Name) string
+    // Format: mysql:host=HOST;port=PORT;dbname=DBNAME;charset=CHARSET
     $dsn = sprintf(
-        'mysql:host=%s;port=%s;dbname=%s;;charset=utf8mb4",
+        'mysql:host=%s;port=%s;dbname=%s;charset=%s',
         DB_HOST,
         DB_PORT,
         DB_NAME,
         DB_CHARSET
     );
-
     // PDO driver options
     $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
