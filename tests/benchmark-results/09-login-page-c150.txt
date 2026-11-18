@@ -1,0 +1,54 @@
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 300 requests
+Completed 600 requests
+Completed 900 requests
+Completed 1200 requests
+Completed 1500 requests
+Completed 1800 requests
+Completed 2100 requests
+Completed 2400 requests
+Completed 2700 requests
+Completed 3000 requests
+Finished 3000 requests
+
+
+Server Software:        Apache/2.4.58
+Server Hostname:        127.0.0.1
+Server Port:            80
+
+Document Path:          /CSCResultPortal/index.php
+Document Length:        12142 bytes
+
+Concurrency Level:      150
+Time taken for tests:   13.271 seconds
+Complete requests:      3000
+Failed requests:        0
+Keep-Alive requests:    0
+Total transferred:      38061000 bytes
+HTML transferred:       36426000 bytes
+Requests per second:    226.06 [#/sec] (mean)
+Time per request:       663.554 [ms] (mean)
+Time per request:       4.424 [ms] (mean, across all concurrent requests)
+Transfer rate:          2800.75 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.5      0       6
+Processing:    59  150 278.1    139   11288
+Waiting:       18  146 278.5    138   11287
+Total:         59  151 278.1    140   11288
+
+Percentage of the requests served within a certain time (ms)
+  50%    140
+  66%    143
+  75%    148
+  80%    153
+  90%    181
+  95%    194
+  98%    202
+  99%    214
+ 100%  11288 (longest request)

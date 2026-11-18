@@ -1,0 +1,550 @@
+/* ============================================================
+   CSCResultPortal - HOD Role Stylesheet
+   File: css/hod.css
+   Purpose: Styles specific to HOD dashboard pages.
+            Pipeline, approval cards, analytics, staff management.
+   ============================================================ */
+
+/* ============================================================
+   SECTION 1: HOD WELCOME BANNER
+   ============================================================ */
+.hod-welcome-banner {
+    background: linear-gradient(135deg, #002d00 0%, #004d00 40%, #006400 100%);
+    border-radius: 12px;
+    padding: 26px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0,100,0,0.25);
+}
+
+.hod-welcome-banner::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: rgba(255,215,0,0.06);
+}
+
+.hod-avatar {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: rgba(255,215,0,0.20);
+    border: 2.5px solid rgba(255,215,0,0.60);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 800;
+    color: #FFD700;
+    flex-shrink: 0;
+    margin-right: 18px;
+}
+
+.welcome-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.welcome-subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.70);
+    margin: 0;
+}
+
+.hod-banner-chip {
+    border-radius: 10px;
+    padding: 14px 24px;
+    text-align: center;
+    background: rgba(255,215,0,0.15);
+    border: 1.5px solid rgba(255,215,0,0.40);
+    min-width: 120px;
+}
+
+.hod-banner-chip.chip-light {
+    background: rgba(255,255,255,0.10);
+    border-color: rgba(255,255,255,0.25);
+}
+
+.chip-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: #FFD700;
+    line-height: 1;
+}
+
+.chip-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.70);
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* ============================================================
+   SECTION 2: FULL PIPELINE
+   ============================================================ */
+.hod-pipeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 8px 0;
+}
+
+.hod-pipeline-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 10px;
+    min-width: 90px;
+    opacity: 0.50;
+    transition: all 0.2s ease;
+}
+
+.hod-pipeline-stage.active {
+    opacity: 1;
+}
+
+.hod-stage-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border: 2px solid var(--stage-color, #e0e0e0);
+    color: var(--stage-color, #aaa);
+    background: rgba(from var(--stage-color) r g b / 0.10);
+    transition: all 0.2s ease;
+}
+
+.hod-pipeline-stage.active .hod-stage-icon {
+    background: rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.hod-stage-count {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1a1a2e;
+    line-height: 1;
+}
+
+.hod-stage-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #6c757d;
+    text-align: center;
+}
+
+.hod-pipeline-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 4px;
+    margin-top: -24px;
+}
+
+.connector-line {
+    width: 24px;
+    height: 2px;
+    background: #e0e0e0;
+    margin-bottom: 2px;
+}
+
+.connector-line.active {
+    background: #006400;
+}
+
+.connector-arrow {
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* ============================================================
+   SECTION 3: REVIEW LIST (shared with advisor)
+   ============================================================ */
+.review-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-list-item {
+    display: block;
+    padding: 13px 18px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.review-list-item:last-child {
+    border-bottom: none;
+}
+
+.review-list-item:hover {
+    background: #f4f6f9;
+    text-decoration: none;
+}
+
+.review-list-item.active {
+    background: #e8f5e9;
+    border-left: 3px solid #006400;
+}
+
+.review-list-code {
+    font-size: 14px;
+    font-weight: 700;
+    color: #006400;
+    margin-bottom: 3px;
+}
+
+.review-list-title {
+    font-size: 12.5px;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.review-list-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11.5px;
+    color: #777;
+    margin-bottom: 2px;
+}
+
+/* ============================================================
+   SECTION 4: FINAL APPROVAL BLOCK
+   ============================================================ */
+.final-approve-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border: 1.5px solid rgba(255,215,0,0.50);
+    border-radius: 10px;
+    background: linear-gradient(135deg, #fffbea, #fff8cc);
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.final-approve-block:last-child {
+    margin-bottom: 0;
+}
+
+.final-approve-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+}
+
+.final-approve-meta {
+    font-size: 12.5px;
+    color: #6c757d;
+}
+
+/* ============================================================
+   SECTION 5: HOD APPROVE ACTION CARD
+   ============================================================ */
+.hod-approve-action-card {
+    background: #f4f6f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hod-approve-action-left {
+    font-size: 13.5px;
+    color: #444;
+    flex: 1;
+    min-width: 200px;
+}
+
+/* ============================================================
+   SECTION 6: SYSTEM ACTIVITY LIST (Dashboard)
+   ============================================================ */
+.activity-list {
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 18px;
+    border-bottom: 1px solid #f5f5f5;
+    transition: background 0.15s;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-item:hover {
+    background: #f9f9f9;
+}
+
+.activity-icon {
+    color: #006400;
+    font-size: 10px;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.activity-content {
+    flex: 1;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.activity-user {
+    color: #006400;
+}
+
+.activity-action {
+    color: #333;
+    margin-left: 4px;
+}
+
+.activity-time {
+    font-size: 11px;
+    color: #aaa;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   SECTION 7: PIPELINE DOUGHNUT LEGEND (Dashboard)
+   ============================================================ */
+.pipeline-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.pipeline-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: #333;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.legend-label {
+    flex: 1;
+}
+
+/* ============================================================
+   SECTION 8: MANAGE STAFF - TABLE DANGER SUBTLE
+   ============================================================ */
+.table-danger-subtle {
+    background-color: rgba(220,53,69,0.05) !important;
+}
+
+/* ============================================================
+   SECTION 9: BATCH UPLOAD STYLES
+   ============================================================ */
+.upload-dropzone {
+    border: 2px dashed #006400;
+    border-radius: 10px;
+    padding: 32px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #f9fffa;
+}
+
+.upload-dropzone:hover {
+    background: #e8f5e9;
+    border-color: #004d00;
+}
+
+.upload-dropzone.dragover {
+    background: #d4edda;
+    border-color: #004d00;
+}
+
+.upload-dropzone-icon {
+    font-size: 36px;
+    color: #006400;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.upload-dropzone-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.upload-selected-file {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #006400;
+    font-weight: 600;
+}
+
+.upload-error-log {
+    max-height: 250px;
+    overflow-y: auto;
+    background: #fff8f8;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.upload-error-item {
+    font-size: 12.5px;
+    color: #721c24;
+    padding: 4px 0;
+    border-bottom: 1px solid #f8d7da;
+}
+
+.upload-error-item:last-child {
+    border-bottom: none;
+}
+
+/* ============================================================
+   SECTION 10: ANALYTICS PAGE
+   ============================================================ */
+.analytics-stat-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.analytics-stat-row:last-child {
+    border-bottom: none;
+}
+
+.analytics-bar-bg {
+    flex: 1;
+    height: 6px;
+    background: #f0f0f0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.analytics-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #006400, #FFD700);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.level-cgpa-bar {
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.level-cgpa-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #006400, #28a745);
+    border-radius: 4px;
+}
+
+/* Grade dist legend (shared with advisor/student) */
+.grade-dist-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.grade-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #333;
+}
+
+.grade-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   SECTION 11: RESPONSIVE
+   ============================================================ */
+@media (max-width: 991.98px) {
+    .hod-welcome-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .hod-pipeline {
+        gap: 2px;
+    }
+
+    .hod-pipeline-stage {
+        min-width: 60px;
+        padding: 8px 6px;
+    }
+
+    .hod-stage-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+    }
+
+    .hod-stage-label {
+        font-size: 9px;
+    }
+
+    .final-approve-block {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hod-banner-chip {
+        min-width: 90px;
+        padding: 10px 14px;
+    }
+}

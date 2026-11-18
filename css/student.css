@@ -1,0 +1,532 @@
+/* ============================================================
+   CSCResultPortal - Student Role Stylesheet
+   File: css/student.css
+   Purpose: All styles specific to student dashboard pages
+   ============================================================ */
+
+/* ============================================================
+   SECTION 1: WELCOME BANNER
+   ============================================================ */
+.student-welcome-banner {
+    background: linear-gradient(135deg, #006400 0%, #008000 60%, #004d00 100%);
+    border-radius: 12px;
+    padding: 28px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,100,0,0.25);
+}
+
+.student-welcome-banner::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255,215,0,0.08);
+}
+
+.welcome-banner-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    z-index: 1;
+}
+
+.welcome-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(255,215,0,0.25);
+    border: 2.5px solid rgba(255,215,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    color: #FFD700;
+    flex-shrink: 0;
+}
+
+.welcome-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.welcome-subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.welcome-banner-right {
+    z-index: 1;
+    text-align: center;
+}
+
+.welcome-cgpa-box {
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,215,0,0.4);
+    border-radius: 12px;
+    padding: 16px 24px;
+    text-align: center;
+}
+
+.cgpa-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: #FFD700;
+    line-height: 1;
+}
+
+.cgpa-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+.cgpa-scale {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+}
+
+/* ============================================================
+   SECTION 2: RESULT SUMMARY FOOTER
+   ============================================================ */
+.result-summary-item {
+    text-align: center;
+    padding: 8px;
+}
+
+.result-summary-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.result-summary-value {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1a1a2e;
+}
+
+/* ============================================================
+   SECTION 3: DEGREE CLASS BANNER (CGPA page)
+   ============================================================ */
+.degree-class-banner {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid #FFD700;
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.degree-class-banner-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.degree-icon {
+    width: 48px;
+    height: 48px;
+    background: #e8f5e9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #006400;
+    flex-shrink: 0;
+}
+
+.degree-class-heading {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.degree-class-text {
+    font-size: 18px;
+    font-weight: 800;
+    color: #006400;
+}
+
+/* CGPA scale reference */
+.cgpa-scale-ref {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    text-align: right;
+}
+
+.scale-item {
+    font-size: 11px;
+    color: #aaa;
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: all 0.15s;
+}
+
+.scale-item.scale-active {
+    background: #e8f5e9;
+    color: #006400;
+    font-weight: 700;
+}
+
+/* ============================================================
+   SECTION 4: SEMESTER BLOCK (CGPA Overview)
+   ============================================================ */
+.semester-block {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.semester-block-header {
+    background: #f4f6f9;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.semester-block-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a2e;
+}
+
+.semester-block-gpa {
+    font-size: 13px;
+    color: #555;
+}
+
+/* Table footer row */
+.semester-total-row td {
+    background: #f4f6f9;
+    font-weight: 700;
+    color: #1a1a2e;
+    border-top: 2px solid #e0e0e0;
+}
+
+/* ============================================================
+   SECTION 5: GRADE DISTRIBUTION LEGEND
+   ============================================================ */
+.grade-dist-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.grade-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #333;
+}
+
+.grade-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   SECTION 6: ACADEMIC INFO LIST (Dashboard)
+   ============================================================ */
+.academic-info-list {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 12px;
+}
+
+.academic-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    font-size: 13px;
+    border-bottom: 1px solid #f5f5f5;
+    color: #555;
+}
+
+.academic-info-row:last-child {
+    border-bottom: none;
+}
+
+.cgpa-progress-wrapper {
+    margin-bottom: 8px;
+}
+
+.degree-class-block {
+    padding: 12px;
+    background: #f4f6f9;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.degree-class-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+    margin-bottom: 4px;
+}
+
+/* ============================================================
+   SECTION 7: DASHBOARD NOTIFICATION LIST
+   ============================================================ */
+.dashboard-notif-list {
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.dashboard-notif-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.15s;
+}
+
+.dashboard-notif-item:last-child {
+    border-bottom: none;
+}
+
+.dashboard-notif-item.unread {
+    background: #f0f9f0;
+}
+
+.dashboard-notif-item:hover {
+    background: #f4f6f9;
+}
+
+.dashboard-notif-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.dashboard-notif-dot.unread { background: #006400; }
+.dashboard-notif-dot.read   { background: #ddd; }
+
+.dashboard-notif-content { flex: 1; min-width: 0; }
+
+.dashboard-notif-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dashboard-notif-message {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.dashboard-notif-time {
+    font-size: 11px;
+    color: #999;
+    margin-top: 3px;
+}
+
+/* ============================================================
+   SECTION 8: CARRYOVER REGISTRATION FORM
+   ============================================================ */
+.carryover-course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 8px;
+}
+
+.carryover-course-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.carryover-course-item:hover {
+    border-color: #006400;
+    background: #f0f9f0;
+}
+
+.carryover-course-item:has(.carryover-check:checked) {
+    border-color: #006400;
+    background: #e8f5e9;
+}
+
+.carryover-course-label {
+    flex: 1;
+    cursor: pointer;
+    margin: 0;
+}
+
+.carryover-course-code {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2px;
+}
+
+.carryover-units {
+    font-size: 11px;
+    font-weight: 600;
+    background: #e8f5e9;
+    color: #006400;
+    padding: 2px 7px;
+    border-radius: 20px;
+}
+
+.carryover-course-title {
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 4px;
+}
+
+.carryover-course-meta {
+    font-size: 12px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* ============================================================
+   SECTION 9: CARRYOVER HISTORY LIST
+   ============================================================ */
+.carryover-history-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.carryover-history-item {
+    padding: 14px 18px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.15s;
+}
+
+.carryover-history-item:last-child {
+    border-bottom: none;
+}
+
+.carryover-history-item:hover {
+    background: #f9f9f9;
+}
+
+.carryover-history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.carryover-history-code {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a2e;
+}
+
+.carryover-history-title {
+    font-size: 12.5px;
+    color: #444;
+    margin-bottom: 4px;
+}
+
+.carryover-history-meta {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 4px;
+}
+
+.carryover-advisor-note {
+    font-size: 12px;
+    color: #006400;
+    background: #f0f9f0;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.carryover-history-date {
+    font-size: 11px;
+    color: #aaa;
+}
+
+/* ============================================================
+   SECTION 10: STATUS BADGES FOR CARRYOVER
+   ============================================================ */
+.status-badge.pending   { background: #fff3cd; color: #856404; }
+.status-badge.approved  { background: #d4edda; color: #155724; }
+.status-badge.rejected  { background: #f8d7da; color: #721c24; }
+.status-badge.completed { background: #e8f5e9; color: #006400; }
+
+/* ============================================================
+   SECTION 11: RESPONSIVE
+   ============================================================ */
+@media (max-width: 767.98px) {
+    .student-welcome-banner {
+        padding: 20px;
+    }
+    .welcome-title {
+        font-size: 17px;
+    }
+    .degree-class-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .semester-block-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
