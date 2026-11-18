@@ -1,0 +1,13 @@
+[2026-08-19 14:57:46] MAIL ERROR: Failed to send email to davidukanwoke@gmail.com: SMTP Error: Could not authenticate.
+[2026-10-01 16:02:56] MAIL ERROR: Failed to send email to test@csc.futo.edu.ng: SMTP Error: data not accepted.
+[2026-10-01 16:03:00] MAIL ERROR: Failed to send email to davidukanwoke@gmail.com: SMTP Error: data not accepted.
+[2026-10-01 16:03:11] MAIL ERROR: Failed to send email to lecturer@csc.futo.edu.ng: SMTP Error: data not accepted.
+[2026-10-01 16:03:16] MAIL ERROR: Failed to send email to advisor@csc.futo.edu.ng: SMTP Error: data not accepted.
+[2026-10-01 16:59:41] MAIL ERROR: Failed to send email to davidukanwoke@gmail.com: SMTP Error: data not accepted.
+[2026-10-01 16:59:54] MAIL ERROR: Failed to send email to lecturer@csc.futo.edu.ng: SMTP Error: data not accepted.
+[2026-10-01 17:00:09] MAIL ERROR: Failed to send email to jane.smith@student.futo.edu.ng: SMTP Error: data not accepted.
+[2026-10-01 17:00:27] MAIL ERROR: Failed to send email to sarah.johnson@student.futo.edu.ng: SMTP Error: data not accepted.
+[2026-10-01 17:00:42] MAIL ERROR: Failed to send email to hacker@csc.futo.edu.ng: SMTP Error: data not accepted.
+[2026-10-04 20:50:19] MAIL ERROR: Failed to send email to hod@csc.futo.edu.ng: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+[2026-10-04 20:52:34] MAIL ERROR: Failed to send email to hod@csc.futo.edu.ng: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+[2026-10-06 15:57:43] MAIL ERROR: Failed to send email to hod@csc.futo.edu.ng: SMTP Error: Could not connect to SMTP host. Failed to connect to server

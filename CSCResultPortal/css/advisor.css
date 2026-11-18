@@ -1,0 +1,536 @@
+/* ============================================================
+   CSCResultPortal - Advisor Role Stylesheet
+   File: css/advisor.css
+   Purpose: All styles specific to the Course Advisor role:
+            dashboard pipeline, review panels, student search,
+            carryover management, and transcript print layout.
+   ============================================================ */
+
+/* ============================================================
+   SECTION 1: ADVISOR WELCOME BANNER
+   ============================================================ */
+.advisor-welcome-banner {
+    background: linear-gradient(135deg, #004d00 0%, #006400 55%, #008000 100%);
+    border-radius: 12px;
+    padding: 26px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,100,0,0.22);
+}
+
+.advisor-welcome-banner::before {
+    content: '';
+    position: absolute;
+    right: -50px;
+    bottom: -50px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255,215,0,0.07);
+}
+
+.welcome-avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: rgba(255,215,0,0.20);
+    border: 2.5px solid rgba(255,215,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    color: #FFD700;
+    flex-shrink: 0;
+}
+
+.welcome-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.welcome-subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    margin: 0;
+}
+
+.welcome-stat-chip {
+    border-radius: 10px;
+    padding: 14px 22px;
+    text-align: center;
+    min-width: 110px;
+}
+
+.welcome-stat-chip.chip-gold {
+    background: rgba(255,215,0,0.18);
+    border: 1.5px solid rgba(255,215,0,0.45);
+}
+
+.welcome-stat-chip.chip-white {
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.25);
+}
+
+.chip-number {
+    font-size: 26px;
+    font-weight: 800;
+    color: #FFD700;
+    line-height: 1;
+}
+
+.chip-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+/* ============================================================
+   SECTION 2: WORKFLOW PIPELINE INDICATOR
+   ============================================================ */
+.pipeline-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 8px 0;
+}
+
+.pipeline-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    min-width: 100px;
+    opacity: 0.55;
+    transition: all 0.2s ease;
+}
+
+.pipeline-stage.has-items {
+    opacity: 1;
+}
+
+.pipeline-stage-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    border: 2px solid #e0e0e0;
+    background: #f4f6f9;
+    color: #aaa;
+    transition: all 0.2s ease;
+}
+
+.pipeline-stage.has-items .pipeline-stage-icon {
+    border-color: #006400;
+    background: #e8f5e9;
+    color: #006400;
+}
+
+.pipeline-stage-icon.final_approved {
+    border-color: #FFD700 !important;
+    background: #fff8cc !important;
+    color: #856404 !important;
+}
+
+.pipeline-stage-count {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1a1a2e;
+    line-height: 1;
+}
+
+.pipeline-stage-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+    text-align: center;
+}
+
+.pipeline-arrow {
+    font-size: 14px;
+    color: #ccc;
+    padding: 0 4px;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   SECTION 3: REVIEW RESULTS PAGE
+   ============================================================ */
+.review-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-list-item {
+    display: block;
+    padding: 14px 18px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.review-list-item:last-child {
+    border-bottom: none;
+}
+
+.review-list-item:hover {
+    background: #f4f6f9;
+    text-decoration: none;
+}
+
+.review-list-item.active {
+    background: #e8f5e9;
+    border-left: 3px solid #006400;
+}
+
+.review-list-code {
+    font-size: 14px;
+    font-weight: 700;
+    color: #006400;
+    margin-bottom: 3px;
+}
+
+.review-list-title {
+    font-size: 12.5px;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.review-list-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11.5px;
+    color: #777;
+    margin-bottom: 3px;
+}
+
+.review-list-time {
+    font-size: 11px;
+    color: #aaa;
+}
+
+/* ============================================================
+   SECTION 4: ADVISOR ACTION CARDS (Flag / Forward)
+   ============================================================ */
+.advisor-action-card {
+    height: 100%;
+    transition: all 0.2s ease;
+}
+
+.flag-card {
+    border-top: 3px solid #dc3545 !important;
+}
+
+.forward-card {
+    border-top: 3px solid #006400 !important;
+}
+
+.advisor-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.advisor-check-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: #444;
+}
+
+.advisor-check-item i {
+    font-size: 14px;
+    color: #006400;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   SECTION 5: STUDENT SEARCH PAGE
+   ============================================================ */
+.student-search-list {
+    max-height: 520px;
+    overflow-y: auto;
+}
+
+.student-search-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+
+.student-search-item:last-child {
+    border-bottom: none;
+}
+
+.student-search-item:hover {
+    background: #f4f6f9;
+    text-decoration: none;
+}
+
+.student-search-item.active {
+    background: #e8f5e9;
+    border-left: 3px solid #006400;
+}
+
+.student-avatar-sm {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #006400;
+    color: #FFD700;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.student-search-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.student-search-name {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1a1a2e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.student-search-matric {
+    font-size: 12px;
+    color: #006400;
+    font-weight: 600;
+}
+
+.student-search-meta {
+    font-size: 11.5px;
+    color: #888;
+    margin-top: 2px;
+}
+
+/* ============================================================
+   SECTION 6: TRANSCRIPT LAYOUT
+   ============================================================ */
+.transcript-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #006400;
+    color: #FFD700;
+    font-size: 24px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.semester-block {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.semester-block-header {
+    background: #f4f6f9;
+    padding: 11px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.semester-block-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a2e;
+}
+
+/* ============================================================
+   SECTION 7: CARRYOVER LIST PAGE
+   ============================================================ */
+.carryover-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.carryover-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+}
+
+.carryover-tab:hover {
+    background: #f4f6f9;
+    color: #006400;
+    text-decoration: none;
+}
+
+.carryover-tab.active {
+    background: #006400;
+    color: #fff;
+    border-color: #006400;
+}
+
+.carryover-tab-count {
+    background: rgba(255,255,255,0.25);
+    padding: 1px 7px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.carryover-tab.active .carryover-tab-count {
+    background: rgba(255,255,255,0.30);
+}
+
+.carryover-tab:not(.active) .carryover-tab-count {
+    background: #e0e0e0;
+    color: #555;
+}
+
+.carryover-reason-text {
+    font-size: 12.5px;
+    color: #444;
+    line-height: 1.4;
+    max-width: 200px;
+}
+
+.advisor-note-display {
+    font-size: 12px;
+    color: #006400;
+}
+
+.advisor-carryover-list {
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.advisor-carryover-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.15s;
+}
+
+.advisor-carryover-item:last-child {
+    border-bottom: none;
+}
+
+.advisor-carryover-item:hover {
+    background: #f9f9f9;
+}
+
+/* ============================================================
+   SECTION 8: PRINT TRANSCRIPT STYLES
+   ============================================================ */
+@media print {
+    .portal-sidebar,
+    .portal-topbar,
+    .sidebar-overlay,
+    .page-header,
+    .content-card-header .btn-portal-gold,
+    form, button,
+    .topbar-notif-wrapper,
+    .topbar-user-chip {
+        display: none !important;
+    }
+
+    .portal-main {
+        margin-left: 0 !important;
+    }
+
+    .portal-content {
+        padding: 0 !important;
+    }
+
+    .transcript-print-header,
+    .transcript-print-footer {
+        display: block !important;
+    }
+
+    body {
+        font-size: 12px;
+    }
+
+    .portal-table th {
+        background: #333 !important;
+        color: #fff !important;
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+.transcript-print-header {
+    margin-bottom: 20px;
+}
+
+.transcript-print-footer {
+    margin-top: 20px;
+}
+
+/* ============================================================
+   SECTION 9: RESPONSIVE
+   ============================================================ */
+@media (max-width: 991.98px) {
+    .pipeline-container {
+        gap: 4px;
+    }
+    .pipeline-stage {
+        min-width: 70px;
+        padding: 8px;
+    }
+    .pipeline-stage-label {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .advisor-welcome-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px;
+    }
+    .review-list-item {
+        padding: 10px 14px;
+    }
+}
